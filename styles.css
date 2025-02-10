@@ -1,0 +1,293 @@
+body {
+    font-family: "Silkscreen", sans-serif;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #D4B31A;
+    text-shadow: 
+        2px 2px 0px #F1FE00, 
+        -2px -2px 0px #F1FE00,
+        2px -2px 0px #F1FE00,
+        -2px 2px 0px #F1FE00; 
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 100;
+}
+
+#game {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+}
+
+#game div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    margin-top: 1px;
+}
+
+#Duskrune {
+    margin-top: 150px;
+}
+
+#bg {
+    position: fixed; 
+    top: -150px;
+    left: 0;
+    width: 100%; 
+    height: 120vh; 
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+.health {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+#healthbar0, #healthbar1 {
+    position: relative;
+    background: rgb(0, 0, 0, 0.5);
+    width: 230px;
+    height: 20px;
+    border: 2px solid #DAFBAD;
+    overflow: hidden;
+}
+
+#healthbar0 div, #healthbar1 div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(0deg, rgba(1,148,57,1) 0%, rgba(68,203,120,1) 50%, rgba(1,148,57,1) 100%);
+    transition: width 0.3s ease-in-out; 
+}
+
+
+.health-text {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 10px; 
+    color: #DAFBAD; 
+    font-weight: bold; 
+    pointer-events: none;
+}
+
+
+#action {
+    max-width: 1000px;
+    text-align: center;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+#messages {
+    padding: 10px;
+    border: 2px solid #333;
+    margin-bottom: 10px; 
+    background-color: #f9f9f9;
+    min-height: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.showing {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Style buttons to have a gray background with a white outline */
+button {
+    background-color: rgb(0, 0, 0, 0.4); 
+    color: rgb(255, 255, 255); 
+    border: 2px solid rgb(255, 255, 255); 
+    border-radius: 20px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    font-family: "Silkscreen", sans-serif; 
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: rgb(0, 0, 0, 0.4); 
+    color: #F1FE00; 
+    border: 2px solid #F1FE00; 
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(1); /* Reset zoom */
+}
+
+#start {
+    display: block; 
+    margin: 30px auto; 
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: -65px; 
+    margin-bottom: 10px; 
+}
+
+#controls button {
+    background-color: rgb(0, 0, 0, 0.5); 
+    color: white; 
+    border: 2px solid white; 
+    border-radius: 20px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    font-family: "Silkscreen", sans-serif; 
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+#controls button:hover {
+    border: 2px solid #F1FE00; 
+    color: #F1FE00;
+    transform: scale(1.1);
+}
+
+#controls button:active {
+    transform: scale(1); /* Reset zoom */
+}
+
+
+#reset {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(0, 0, 0); 
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+#reset:hover {
+    background-color: rgba(1,148,57); 
+    color: white;
+    border: 2px solid white;
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+#reset:active {
+    transform: scale(1); /* Reset zoom */
+}
+
+
+/* battle animations */
+
+/* Note the use of names for these classes. They all have the same names 
+with a number at the end, so that if the user rolls a 0, 1, 2, etc, that
+number can just be tacked on to the class name in JS. */
+/* Keyframes for attack animations */
+/* battle animations */
+
+/* Attack shake animation */
+@keyframes attack-shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Attack scale animation */
+@keyframes attack-scale {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Heal fade animation */
+@keyframes heal-fade {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Defense fade animation */
+@keyframes defend-fade {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Add these classes to trigger animations */
+.attack-shake {
+    animation: attack-shake 0.5s ease-in-out;
+}
+
+.attack-scale {
+    animation: attack-scale 0.5s ease-in-out;
+}
+
+.heal-fade {
+    animation: heal-fade 0.5s ease-in-out;
+}
+
+.defend-fade {
+    animation: defend-fade 0.5s ease-in-out;
+}
+
+
+/* Other styles (unchanged) */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.showing {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Dust particle styles */
+#particle-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* To ensure particles don't block interactions */
+    z-index: 10; /* Ensure particles are above the background but below other elements */
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8); /* Dusty light gray color */
+    border-radius: 100%;
+    opacity: 1;
+    animation: rise 6s linear infinite;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(0.5); /* Move upwards and shrink */
+        opacity: 0; /* Fade out as it rises */
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MystiMon</title>
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <img src="images/bg1.png" alt="background" id="bg">
+    <h1>MystiMon Battle</h1>
+    <div id="particle-container"></div>
+
+    <section id="game">
+        <!-- garage band > electric drum kit > big room -->
+        <audio src="sound/swish.mp3"></audio> 
+        <div>
+            <h2>Duskrune's HP</h2>
+            <div class="health">
+                <div id="healthbar0">
+                    <div></div>
+                    <span class="health-text">100%</span>
+                </div>
+            </div>
+            <img src="images/monster1.png" alt="Monster 1" width="200" height="200" id="Duskrune">
+        </div>
+        <div>
+            <h2>Aetherwing's HP</h2>
+            <div class="health">
+                <div id="healthbar1">
+                    <div></div>
+                    <span class="health-text">100%</span>
+                </div>
+            </div>
+            <img src="images/monster2.png" alt="Monster 2" width="350" height="350" id="Aetherwing">
+        </div>
+    </section>
+    <section id="action">
+        <div id="messages">
+            <p>Press the start button to begin the battle!</p>
+        </div>
+        <button id="start">Start Battle!</button>
+        <div id="controls" class="hidden">
+            <!-- garage band > electric drum kit > big room -->
+            <audio src="sound/click.mp3"></audio>
+            <button id="attack">Attack</button>
+            <button id="heal">Heal</button>
+            <button id="defend">Defend</button>
+        </div>
+    </section>
+</body>
+
+</html>
